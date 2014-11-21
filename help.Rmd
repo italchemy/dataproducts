@@ -1,0 +1,19 @@
+## How to Use The Fuel Economy Estimator
+========================================================
+
+The Fuel Economy Estimator (FEE) is an easy to use application that estimates the fuel economy of any vehicle given the vehicle's weight, horsepower, and the number of engine cylinders.
+
+### Using the FEE
+
+Values are entered in the estimator using the controls on the left-hand side of the application.
+
+* The vehicle weight is entered (in pounds) using the slider at the top of the control set. Vehicle weights are limited to 1000 pounds or more, and no more than 6000 pounds.
+
+* The number of engine cylinders is entered using the selection list in the center of the control set. Users may choose from 4, 6, or 8 cylinders.
+
+* The vehicle's horsepower rating is entered using the numeric entry area at the bottom of the control set by either using the increment/decrement arrows on the control, or entering the number directly. Horsepower must be between 50 and 400. Invalid entries are indicated by red text and a red border around the control.
+
+### Results
+
+The values entered by the user and the estimated fuel economy (in miles per U.S. gallon) are shown on the right-hand side of the page.
+
