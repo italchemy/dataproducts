@@ -1,0 +1,57 @@
+---
+title       : The Fuel Economy Estimator
+subtitle    : 
+author      : 
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## The year is 1974...
+
+... and you're looking to buy a new car. Performance and massive amounts of trunk space are as important as ever but, with gas trending towards $0.55 a gallon(!), fuel economy is also a concern. How can you cope? How do you make sure you get the car with the maximum of chrome and a shag carpetted dash without breaking the bank at the pump?
+
+That's where the Fuel Economy Estimator comes in. Plug in the weight, engine size, and horsepower of any vehicle and, using the power of statististics, we'll give you an estimate of its fuel economy.
+
+---
+
+## The Fuel Economy Estimator (FEE) has many benefits.
+
+- Internet accessible (don't worry, Al Gore will invent this is a few decades)
+
+- Estimates the fuel economy of any car; foreign and domestic
+
+- Point your web browser (Al will invent this too) at the URL below
+
+<center><a align="center">https://caffeinatedsoftware.shinyapps.io/fuel_economy/</a></center>
+
+---
+
+## FEE uses the power of statistics to give you a (statistically) correct answer
+
+- Lies, damn lies, and statistics. That's the punch line of the joke everyone tells (trust us, we hear it a lot)
+
+- FEE is developed using R, an advanced statistical package
+
+- We're so confident, we'll even share the code (see next slide)
+
+---
+
+## Estimate for a 2000 pound, 400 horsepower, 8-cylinder vehicle
+
+```{r, echo=FALSE}
+library(datasets)
+```
+
+```{r, echo=TRUE}
+cars <- mtcars
+cars$cyl <- as.factor(cars$cyl)
+mpgModel <- lm(mpg ~ wt+cyl+hp, data = cars)
+mpg <- predict(mpgModel, data.frame(wt=2000 / 1000, cyl=as.factor(8), hp=400))
+
+paste("Estimated fuel economy: ", mpg, "miles per gallon")
+```

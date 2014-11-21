@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Fuel Economy Estimator</title>
+  <meta charset="utf-8">
+  <meta name="description" content="The Fuel Economy Estimator">
+  <meta name="author" content="">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>The Fuel Economy Estimator</h1>
+    <h2></h2>
+    <p><br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>The year is 1974...</h2>
+  </hgroup>
+  <article data-timings="">
+    <p class='..'>and you&#39;re looking to buy a new car. Performance and massive amounts of trunk space are as important as ever but, with gas trending towards $0.55 a gallon(!), fuel economy is also a concern. How can you cope? How do you make sure you get the car with the maximum of chrome and a shag carpetted dash without breaking the bank at the pump?</p>
+
+<p>That&#39;s where the Fuel Economy Estimator comes in. Plug in the weight, engine size, and horsepower of any vehicle and, using the power of statististics, we&#39;ll give you an estimate of its fuel economy.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>The Fuel Economy Estimator (FEE) has many benefits.</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>Internet accessible (don&#39;t worry, Al Gore will invent this is a few decades)</p></li>
+<li><p>Estimates the fuel economy of any car; foreign and domestic</p></li>
+<li><p>Point your web browser (Al will invent this too) at the URL below</p></li>
+</ul>
+
+<p><center><a align="center"><a href="https://caffeinatedsoftware.shinyapps.io/fuel_economy/">https://caffeinatedsoftware.shinyapps.io/fuel_economy/</a></a></center></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>FEE uses the power of statistics to give you a (statistically) correct answer</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>Lies, damn lies, and statistics. That&#39;s the punch line of the joke everyone tells (trust us, we hear it a lot)</p></li>
+<li><p>FEE is developed using R, an advanced statistical package</p></li>
+<li><p>We&#39;re so confident, we&#39;ll even share the code (see next slide)</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Estimate for a 2000 pound, 400 horsepower, 8-cylinder vehicle</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">cars &lt;- mtcars
+cars$cyl &lt;- as.factor(cars$cyl)
+mpgModel &lt;- lm(mpg ~ wt+cyl+hp, data = cars)
+mpg &lt;- predict(mpgModel, data.frame(wt=2000 / 1000, cyl=as.factor(8), hp=400))
+
+paste(&quot;Estimated fuel economy: &quot;, mpg, &quot;miles per gallon&quot;)
+</code></pre>
+
+<pre><code>## [1] &quot;Estimated fuel economy:  17.0493791150691 miles per gallon&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='The year is 1974...'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='The Fuel Economy Estimator (FEE) has many benefits.'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='FEE uses the power of statistics to give you a (statistically) correct answer'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Estimate for a 2000 pound, 400 horsepower, 8-cylinder vehicle'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
